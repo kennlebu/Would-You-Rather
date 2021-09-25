@@ -1,4 +1,3 @@
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { getQuestions, getUsers } from '../data/api'
 
 export const FETCH_USERS = 'FETCH_USERS';

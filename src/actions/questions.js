@@ -1,6 +1,5 @@
 import { hideLoading, showLoading } from "react-redux-loading-bar";
 import { saveQuestion, saveQuestionAnswer } from "../data/api";
-import { fetchQuestions } from "./shared";
 
 export const SAVE_QUESTION = 'SAVE_QUESTION';
 export const ANSWER_QUESTION = 'ANSWER_QUESTION';
@@ -26,12 +25,15 @@ export function unanswerQuestion({authedUser, qid, answer}) {
 
 export function handleAnswerQuestion(info) {
     return (dispatch) => {
-        dispatch(answerQuestion(info))
+        dispatch(answerQuestion(info)) // authedUser, qid, answer
 
-        return saveQuestionAnswer(info)
+        return saveQuestionAnswer(info) // authedUser, qid, answer
+            .then(() => {
+                console.log('In then: ', info)
+                dispatch(answerQuestion(info))})
             .catch(e => {
                 console.warn('There was an error saving your answer: ', e);
-                dispatch(unanswerQuestion(info))
+                dispatch(unanswerQuestion(info)) // authedUser, qid, answer
                 alert('There was an error answering the question. Please try again')
             })
     }

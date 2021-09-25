@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { handleSaveQuestion } from "../../actions/questions";
 
 class NewQuestion extends Component {
     state = {
         optionOne: '',
-        optionTwo: ''
+        optionTwo: '',
+        toHome: false
     }
 
     handleOptionOneChange = (e) => {
@@ -30,20 +32,35 @@ class NewQuestion extends Component {
             optionTwoText: this.state.optionTwo,
             author: authedUser.id
         }))
+
+        this.setState(() => ({
+            optionOne: '',
+            optionTwo: '',
+            toHome: true
+        }))
+        
     }
 
     render() {
+        const { toHome } = this.state;
+
+        if(toHome) {
+            return <Redirect to='/' />
+        }
+
         return (
-            <div>
+            <div className='new-question'>
                 <h3>New Question</h3>
                 <h4>Would you rather...</h4>
                 <input
+                    placeholder='Enter an option'
                     type='text'
                     onChange={this.handleOptionOneChange}
                     />
                 <br/>
                 OR <br/>
                 <input
+                    placeholder='Enter an option'
                     type='text'
                     onChange={this.handleOptionTwoChange}
                     />
@@ -61,21 +78,6 @@ class NewQuestion extends Component {
 function mapStateToProps({authedUser}) {
     return {
         authedUser: authedUser
-        // {
-        //     "id": "sarahedo",
-        //     "name": "Sarah Edo",
-        //     "avatarURL": "../../images/snow.jpg",
-        //     "answers": {
-        //         "8xf0y6ziyjabvozdd253nd": "optionOne",
-        //         "6ni6ok3ym7mf1p33lnez": "optionOne",
-        //         "am8ehyc8byjqgar0jgpub9": "optionTwo",
-        //         "loxhs1bqm25b708cmbf3g": "optionTwo"
-        //     },
-        //     "questions": [
-        //         "8xf0y6ziyjabvozdd253nd",
-        //         "am8ehyc8byjqgar0jgpub9"
-        //     ]
-        // }
     }
 }
 

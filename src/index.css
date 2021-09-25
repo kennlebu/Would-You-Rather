@@ -13,8 +13,9 @@ code {
 }
 
 /* App styles */
-.App {
+.content {
   margin: auto;
+  max-width: 600px;
 }
 .content {
   margin-top: 40px;
@@ -42,13 +43,17 @@ ul {
 }
 
 .question-option-button {
-  height: 2.5em;
+  min-height: 2.5em;
+  margin: 8px;
+  width: 300px;
 }
 
 .question-answer-button {
-  height: 2.5em;
+  min-height: 2.5em;
   background-color: lightgrey;
   color: #3e4444;
+  margin: 8px 8px 0 8px;
+  width: 300px;
 }
 
 .my-answer {
@@ -61,6 +66,9 @@ ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin: 4px;
 }
 
 .leaderboard-position {
@@ -75,6 +83,13 @@ ul {
   padding: 8px 24px 8px 4px;
 }
 
+.leaderboard-score {
+  background-color: lavender;
+  border: 1px solid #ddddf5;
+  border-radius: 2px;
+  padding: 8px;
+}
+
 .score {
   font-weight: 500;
   font-size: 1.5em;
@@ -84,16 +99,40 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 12px;
+  padding: 12px 24px;
+  background-color: #4179a7;
 }
 
 nav.links {
   display: flex;
   flex-direction: column;
+  font-size: 1.3em;
 }
 
-nav.links a {
-  margin-left: 16px 4px;
+nav a {
+  padding-right: 16px;
+  text-decoration: none;
+  color: white;
+}
+
+nav a:active {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #1c374c;
+}
+
+.nav-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin: 4px;
+  vertical-align: middle;
+}
+
+.logged-user {
+  padding-right: 24px;
 }
 
 .text-muted {
@@ -128,4 +167,56 @@ nav.links a {
 
 .or {
   color: gray;
+  margin: 8px;
+}
+
+.stats {
+  font-size: small;
+}
+
+.page-selector {
+  padding: 8px 16px;
+  width: 13em;
+}
+
+.signin {
+  padding: 4px 16px 4px 16px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  max-width: 300px;
+  min-height: 300px;
+  margin: auto;
+  margin-top: 48px;
+  background-color: steelblue;
+}
+.signin button {
+  height: 2em;
+  width: 200px;
+  margin-top: 8px;
+}
+.signin select {
+  width: 200px;
+  height: 1.8em;
+}
+.signin h1 {
+  margin-bottom: 56px;
+}
+
+.new-question {
+  padding: 4px 16px 4px 16px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  max-width: 300px;
+  min-height: 300px;
+  margin: auto;
+}
+.new-question button {
+  height: 2em;
+  width: 200px;
+  margin-top: 8px;
+}
+.new-question input {
+  width: 200px;
+  height: 1.8em;
+  padding: 4px;
 }

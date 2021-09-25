@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { GiCheckMark } from "react-icons/gi";
 import { connect } from "react-redux";
 import { hideLoading, showLoading } from "react-redux-loading-bar";
 import { handleFetchQuestions } from "../actions/shared";
-import Signin from "./authentication/Signin";
 import AnsweredList from "./polls/AnsweredList";
 import UnansweredList from "./polls/UnansweredList";
 
@@ -23,17 +23,16 @@ class Home extends Component {
         this.props.dispatch(hideLoading())
     }
 
-    render() {  
+    render() {
         return (
             <div>
-                {Object.keys(this.props.authedUser).length <= 0
-                    ? <Signin />
-                :
                 <div>
-                    <button onClick={() => this.togglePage('unanswered')}>
+                    <button className='page-selector' onClick={() => this.togglePage('unanswered')}>
+                        {this.state.selected_page === 'unanswered' ? <GiCheckMark /> : ''} &nbsp;
                         Unanswered
                     </button>
-                    <button onClick={() => this.togglePage('answered')}>
+                    <button className='page-selector' onClick={() => this.togglePage('answered')}>
+                        {this.state.selected_page === 'answered' ? <GiCheckMark /> : ''} &nbsp;
                         Answered
                     </button>
 
@@ -41,7 +40,7 @@ class Home extends Component {
                         ? <AnsweredList />
                         : <UnansweredList />
                     }
-                </div>}
+                </div>
             </div>
             
         )

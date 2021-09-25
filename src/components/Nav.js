@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { logOut } from '../actions/users';
 
 class Nav extends Component {
     logout = (e) => {
         e.preventDefault()
         this.props.dispatch(logOut())
+        this.props.history.push('/')
     }
 
     render() {
@@ -19,7 +20,10 @@ class Nav extends Component {
                     <NavLink to="/leaderboard">Leaderboard</NavLink>
                 </div>
                 <div className='logout'>
-                    <strong>{authedUser.name}</strong> &nbsp;
+                    <span className='logged-user'>
+                        <img className='nav-pic' src={authedUser.avatarURL} alt={authedUser.name} />
+                        <strong>{authedUser.name}</strong>
+                    </span>
                     <a href='#logout' onClick={(e) => this.logout(e)}>Logout</a>
                 </div>
             </nav> 
@@ -33,4 +37,4 @@ function mapStateToProps({authedUser}) {
     }
 }
 
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));

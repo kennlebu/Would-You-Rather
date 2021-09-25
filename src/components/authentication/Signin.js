@@ -29,8 +29,8 @@ class Signin extends Component {
     render() {
         const {users} = this.props;
         return (
-            <div>
-                <h3>Sign In</h3>
+            <div className='signin'>
+                <h1>Sign In</h1>
                 {Object.keys(users).length > 0 && <div>
                     <select onChange={this.selectUser}>
                         <option value=''>Select a user to log in</option>
@@ -38,7 +38,7 @@ class Signin extends Component {
                             <option key={user_id} value={users[user_id].id}>{users[user_id].name}</option>
                         ))}
                     </select>
-                    
+                    <br/>
                     <button disabled={!this.state.selected_user} onClick={() => this.signInUser()}>Sign In</button>
                 </div>}
                 {/* {users.length <= 0 && <p>No users available. <button>Sign Up</button></p>} */}
