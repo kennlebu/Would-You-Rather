@@ -11,3 +11,121 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* App styles */
+.App {
+  margin: auto;
+}
+.content {
+  margin-top: 40px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.poll {
+  padding: 4px 16px 4px 16px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.poll-content {
+  width: 65%;
+}
+.poll-content h5 {
+  margin-top: 8px;
+}
+
+.question-option-button {
+  height: 2.5em;
+}
+
+.question-answer-button {
+  height: 2.5em;
+  background-color: lightgrey;
+  color: #3e4444;
+}
+
+.my-answer {
+  height: 2.5em;
+  background-color: #99bb9a;
+  color: darkslategrey;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.leaderboard-position {
+  padding: 0 24px;
+}
+
+.leaderboard-picture {
+  padding: 8px 24px 8px 4px;
+}
+
+.leaderboard-content {
+  padding: 8px 24px 8px 4px;
+}
+
+.score {
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+nav.links {
+  display: flex;
+  flex-direction: column;
+}
+
+nav.links a {
+  margin-left: 16px 4px;
+}
+
+.text-muted {
+  color: gray;
+  font-size: small;
+}
+
+.date {
+  margin-top: 0;
+}
+
+.teaser-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 4px 16px 4px 16px;
+}
+
+.teaser-text {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.2em;
+}
+
+.would-you-rather {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.or {
+  color: gray;
+}
